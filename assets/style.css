@@ -1,0 +1,102 @@
+body {
+    font-family: 'Nanum Gothic', 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ebebea;
+    font-size: px;
+    color: rgb(59, 59, 59);
+}
+
+ul > li {
+    line-height: 1.5em;
+}
+
+.container {
+    width: 720px;
+    height: auto;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.content {
+    padding: 25px 0;
+}
+
+.intro > h1 {
+    font-size: 2.3em;
+    line-height: 60px;
+    font-weight: 800;
+}
+
+.content .title {
+    font-size: 2em;
+    font-weight: 800;
+}
+
+.content svg {
+    transition: 0.3s linear;
+}
+
+.content svg > * {
+    fill: rgb(65, 65, 65);
+
+}
+
+.content input[type=checkbox] {
+    display: none;
+}
+
+.content input[type=checkbox] ~ section {
+    display: none;
+}
+
+.content input[type=checkbox]:checked ~ section {
+    display: block;
+}
+
+.content input[type=checkbox]:checked ~ p svg {
+    transform: rotate(90deg);
+}
+
+.career {
+    padding-left: 15px;
+    padding-top: 1px;
+}
+
+.career ~ .career {
+    padding-top: 25px;
+}
+
+.career > p span {
+    font-size: 1.7em;
+    margin-bottom: 0.3em;
+    font-weight: 800;
+    opacity: 0.8;
+}
+
+.projects {
+    padding-left: 10px;
+    padding-top: 1px;
+    font-size: 0.95em;
+    line-height: 1.35em;
+}
+
+.projects > article ~ article {
+    padding-top: 10px;
+}
+
+.skills {
+    padding-left: 15px;
+}
+
+.dark-blue {
+    color: #32435F;
+}
+
+.dark-red {
+    color: #a14536;
+}
+
+.mustard {
+    color: #CC8A4D;
+}
