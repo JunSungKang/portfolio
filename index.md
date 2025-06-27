@@ -25,8 +25,8 @@
 
 ### 서브 스킬
 
-* **언어**: `C++`, `C#`, `Solidity`
-* **프레임워크**: `Angular`, `Svelte`, `Ethereum`, `MFC`
+* **언어**: `C++`, `C#`, `Solidity`, `Python`
+* **프레임워크**: `Angular`, `Svelte`, `React`, `Ethereum`, `MFC`
 
 ---
 
@@ -71,7 +71,7 @@
 
 | 구분 | 학교      | 전공       | 기간          |
 | -- | ------- | -------- | ----------- |
-| 학사 | 한국교통대학교 | 컴퓨터정보공학과 | 2010 – 2015 |
+| 학사 | 한국교통대학교 | 컴퓨터정보공학과 | 2010 – 2016 |
 | 석사 | 한양대학교   | 블록체인융합학과 | 2019 – 2021 |
 
 * **학사 논문**: [문자인식기능을 이용한 기계번역 모바일앱 개발](https://www.riss.kr/search/detail/DetailView.do?p_mat_type=1a0202e37d52c72d&control_no=1ba5001adfb7f47747de9c1710b0298d)
