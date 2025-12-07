@@ -42,10 +42,16 @@ function main() {
 		const { metadata, body } = parseFrontmatter(mdContent);
 
 		// Setup Nunjucks
-		nunjucks.configure(TEMPLATE_DIR, {
+		const env = nunjucks.configure(TEMPLATE_DIR, {
 			autoescape: true,
 			trimBlocks: true,
 			lstripBlocks: true
+		});
+
+		// Add custom nl2br filter to handle YAML multi-line strings
+		env.addFilter('nl2br', function (str) {
+			if (typeof str !== 'string') return str;
+			return str.replace(/\n/g, '<br>');
 		});
 
 		// Render template

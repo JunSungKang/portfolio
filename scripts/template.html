@@ -214,7 +214,7 @@
 									{% endif %}
 									<td>{{ project.tech }}</td>
 									<td>
-										{{ project.result | safe }}
+										{{ project.result | nl2br | safe }}
 									</td>
 								</tr>
 								{% endfor %}
