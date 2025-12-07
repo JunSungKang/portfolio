@@ -16,7 +16,7 @@ profile:
   name_ko: "강준성"
   name_en: "Kang Junsung"
   title_en: "Junsung Kang" # 상단 타이틀 등에 표시될 영문 이름
-  role: "Backend & AI Engineer / Blockchain Specialist" # 직무/역할
+  role: "Backend & AI Engineer / Frontend Engineer" # 직무/역할
   birth: "1992. 02. 06"
   education: "한양대학원 블록체인융합학과 (석사)" # 최종 학력 요약
   
@@ -43,12 +43,12 @@ skills:
   # 주요 기술 (Main)
   main:
     languages: ["Java", "TypeScript", "JavaScript", "HTML/CSS"]
-    frameworks: ["Spring Boot", "Nuxt3"]
+    frameworks: ["Spring Boot", "Nuxt", "Angular", "Next"]
   
   # 서브 기술 (Sub)
   sub:
-    languages: ["C++", "C#", "Solidity", "Python"]
-    frameworks: ["Angular", "Svelte", "React", "Ethereum", "MFC"]
+    languages: ["C++", "C#", "Solidity", "Python", "React", "Vue"]
+    frameworks: ["Svelte", "Ethereum", "MFC"]
 
 # ------------------------------------------------------------------------------
 # 4. 학력 (Education)
@@ -89,6 +89,16 @@ career:
           - RAG 솔루션 릴리즈 완료
           - 생성형 AI 기반 아키텍처 설계
           - QA 협업 및 빠른 성장
+      - name: "통합관리도구 웹 개발"
+        tech: "NodeJS, Next, PostgreSQL"
+        result: |
+          - 기존 사내 제품의 개별적으로 분리되어있던 관리도구를 하나의 웹으로 통합
+          - 최소한의 서버 자원을 위한 웹 설계
+      - name: "인증기 모듈 개발"
+        tech: "Java21, SpringBoot 4, PostgreSQL"
+        result: |
+          - 기능 통합을 위한 기획부터 설계, 개발, 단위테스트, 배포까지 프로젝트 전체 리딩
+          - 기존 사내 모든 제품의 라이센스, 계정, API키 관리등 모든 인증/인가 관련 기능 통합
 
   # [2] 브랜비
   - company: "브랜비 (Branby)"
@@ -146,25 +156,25 @@ career:
 # - 연혁을 최신순으로 기록합니다.
 # ------------------------------------------------------------------------------
 timeline:
-  - date: "2024.09"
+  - date: "2024.09 - ing"
     title: "와이즈넛 재입사"
     desc: "RAG 기반 생성형 AI 솔루션 개발"
-  - date: "2023.10"
+  - date: "2023.10 - 2024.08"
     title: "브랜비 입사"
     desc: "삼성전자 ALM 프로젝트 참여"
   - date: "2019.03 - 2021.02"
     title: "한양대학교 석사"
     desc: "블록체인융합학과 졸업"
-  - date: "2018.07"
+  - date: "2018.07 - 2023.09"
     title: "와이즈넛 입사"
     desc: "검색엔진, 보안관제, AI 플랫폼 개발"
-  - date: "2018.03"
+  - date: "2018.03 - 2018.06"
     title: "코인빈 입사"
     desc: "보안/인프라 담당"
-  - date: "2015.11"
+  - date: "2015.11 - 2018.02"
     title: "에임시스템 입사"
     desc: "MES, RMS 웹 플랫폼 개발"
-  - date: "2010.03"
+  - date: "2010.03 - 2016.02"
     title: "한국교통대학교 입학"
     desc: "컴퓨터정보공학과"
 ---
