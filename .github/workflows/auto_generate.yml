@@ -2,9 +2,8 @@ name: Update Portfolio
 
 on:
   push:
-    paths:
-      - 'index.md'
-      - 'scripts/**'
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
