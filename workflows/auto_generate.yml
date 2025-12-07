@@ -1,0 +1,55 @@
+name: Update Portfolio
+
+on:
+  push:
+    paths:
+      - 'portfolio/index.md'
+      - 'portfolio/scripts/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Install dependencies
+      run: |
+        cd portfolio/scripts
+        npm install
+
+    - name: Generate HTML
+      run: |
+        cd portfolio/scripts
+        npm run generate
+
+    - name: Verify Generation
+      run: |
+        echo "Checking for changes..."
+        git status
+        ls -l portfolio/index.html
+
+    - name: Commit and push changes
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        
+        # Check if index.html is modified
+        if [ -n "$(git status --porcelain portfolio/index.html)" ]; then
+          echo "Changes detected in index.html"
+          git add portfolio/index.html
+          git commit -m "Auto-update index.html from index.md [skip ci]"
+          git push
+        else
+          echo "No changes detected in index.html"
+        fi
