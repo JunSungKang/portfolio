@@ -1,0 +1,13 @@
+{
+	"name": "portfolio-generator",
+	"version": "1.0.0",
+	"description": "Generate portfolio HTML from Markdown",
+	"main": "generate.js",
+	"scripts": {
+		"generate": "node generate.js"
+	},
+	"dependencies": {
+		"js-yaml": "^4.1.0",
+		"nunjucks": "^3.2.4"
+	}
+}

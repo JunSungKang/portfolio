@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Junsung Kang | Portfolio</title>
+	<meta name="description" content="AI & Blockchain Backend Engineer Portfolio">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+	<!-- Background Particle Network -->
+	<canvas id="bg-canvas"></canvas>
+
+	<!-- Side Navigation -->
+	<div class="nav-dots">
+		<div class="nav-dot active" data-target="home"></div>
+		<div class="nav-dot" data-target="about"></div>
+		<div class="nav-dot" data-target="skills"></div>
+		<div class="nav-dot" data-target="education"></div>
+		<div class="nav-dot" data-target="career"></div>
+		<div class="nav-dot" data-target="timeline"></div>
+	</div>
+
+	<!-- Scroll Container -->
+	<main class="snap-container">
+
+		<!-- Hero Section -->
+		<section id="home">
+			<div class="container">
+				<p class="hero-subtitle mono">&lt;SYSTEM_STATUS: ONLINE /&gt;</p>
+				<h1>Junsung Kang</h1>
+				<p class="hero-subtitle mono" style="color: var(--text-main); margin-top: 0.5rem;">
+					Backend &amp; AI Engineer / Blockchain Specialist
+				</p>
+
+				<div class="hero-desc">
+					<p class="typing-text mono" data-text="&quot;긍정적인 사람은 한계가 없고, 부정적인 사람은 한 게 없다.&quot;"></p>
+					<p style="margin-top: 1rem; color: var(--text-muted);">
+						매사에 긍정적인 태도로 기술의 한계에 도전하며 끊임없는 성장을 이루고 있습니다.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 1. Profile / Intro -->
+		<section id="about">
+			<div class="container">
+				<h2>01. 인적 사항</h2>
+				<div class="glass-card">
+					<div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+						<div style="flex: 1; min-width: 250px;">
+							<h3 style="margin-bottom: 1rem; color: var(--secondary);">// 기본 정보</h3>
+							<ul style="list-style: none; line-height: 2;">
+								<li><span class="mono highlight">Name:</span> 강준성 (Kang Junsung)</li>
+								<li><span class="mono highlight">Birth:</span> 1992. 02. 06</li>
+								<li><span class="mono highlight">Education:</span> 한양대학원 블록체인융합학과 (석사)</li>
+							</ul>
+						</div>
+						<div style="flex: 1; min-width: 250px;">
+							<h3 style="margin-bottom: 1rem; color: var(--secondary);">// 핵심 가치</h3>
+							<ul style="list-style: none; line-height: 2;">
+								<li>1. 끊임없이 **기술을 배우고 익히는 자세**</li>
+								<li>2. **도전과 개선에 대한 태도**</li>
+								<li>3. 다양한 환경에서의 **리더십 및 협업 경험**</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. Skills -->
+		<section id="skills">
+			<div class="container">
+				<h2>02. 기술 스택</h2>
+
+				<div style="margin-bottom: 2rem;">
+					<h3 class="mono" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main);">::
+						주요 기술 (Main)</h3>
+					<div class="skills-grid">
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">LANGUAGES</span>
+							<span class="skill-tag">Java</span>
+							<span class="skill-tag">TypeScript</span>
+							<span class="skill-tag">JavaScript</span>
+							<span class="skill-tag">HTML/CSS</span>
+						</div>
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">FRAMEWORKS</span>
+							<span class="skill-tag" style="border-color: var(--primary); color: var(--primary);">Spring Boot</span>
+							<span class="skill-tag">Nuxt3</span>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<h3 class="mono" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main);">::
+						기타 기술 (Sub)</h3>
+					<div class="skills-grid">
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">LANGUAGES</span>
+							<span class="skill-tag">C++</span>
+							<span class="skill-tag">C#</span>
+							<span class="skill-tag">Solidity</span>
+							<span class="skill-tag">Python</span>
+						</div>
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">FRAMEWORKS
+								& TOOLS</span>
+							<span class="skill-tag">Angular</span>
+							<span class="skill-tag">Svelte</span>
+							<span class="skill-tag">React</span>
+							<span class="skill-tag">Ethereum</span>
+							<span class="skill-tag">MFC</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 3. Education -->
+		<section id="education">
+			<div class="container">
+				<h2>03. 학력</h2>
+				<div class="glass-card table-container" style="overflow-x: hidden;"> <!-- Force no scroll -->
+					<table>
+						<thead>
+							<tr>
+								<th width="20%">학위</th>
+								<th width="30%">학교명</th>
+								<th width="30%">전공</th>
+								<th>기간</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td class="highlight">석사</td>
+								<td>한양대학교 대학원</td>
+								<td>블록체인융합학과</td>
+								<td class="mono">2019 – 2021</td>
+							</tr>
+							<tr>
+								<td class="highlight">학사</td>
+								<td>한국교통대학교</td>
+								<td>컴퓨터정보공학과</td>
+								<td class="mono">2010 – 2016</td>
+							</tr>
+						</tbody>
+					</table>
+					<div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+						<p style="margin-bottom: 0.5rem;" >
+							<i class="fas fa-file-alt highlight"></i> <strong>석사 논문:</strong>
+							<a href="https://www.riss.kr/search/detail/DetailView.do?p_mat_type=be54d9b8bc7cdb09&amp;control_no=1c27fe9fcb321876ffe0bdc3ef48d419" target="_blank"
+								style="color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--secondary);">스마트 컨트랙트 기반 파일 관리 시스템</a>
+						</p>
+						<p >
+							<i class="fas fa-file-alt highlight"></i> <strong>학사 논문:</strong>
+							<a href="https://www.riss.kr/search/detail/DetailView.do?p_mat_type=1a0202e37d52c72d&amp;control_no=1ba5001adfb7f47747de9c1710b0298d" target="_blank"
+								style="color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--secondary);">문자인식기능을 이용한 기계번역 모바일앱 개발</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. Career History -->
+		<section id="career">
+			<div class="container">
+				<h2>04. 업무 경력</h2>
+
+				<!-- Internal Scroll for Career if needed -->
+				<div style="max-height: 75vh; overflow-y: auto; padding-right: 1rem;" class="custom-scroll">
+
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">와이즈넛 (Wisenut) <span
+										style="font-size:0.8rem; color:var(--primary); border:1px solid var(--primary); padding:2px 6px; border-radius:4px; margin-left:10px;">CURRENT</span></h3>
+								<p class="mono" style="color:var(--text-muted); font-size:0.9rem;">연구소 RAG TF팀 / AI어댑티드솔루션팀</p>
+							</div>
+							<span class="mono highlight">2024.09 – PRESENT</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						<table>
+							<thead>
+								<tr>
+									<th width="20%">프로젝트</th>
+									<th width="30%">기술 스택</th>
+									<th>주요 성과</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-weight:bold;">RAG 솔루션 개발</td>
+									<td>Java21, SpringBoot 3, Nuxt3, PostgreSQL</td>
+									<td>
+										- RAG 솔루션 릴리즈 완료<br>- 생성형 AI 기반 아키텍처 설계<br>- QA 협업 및 빠른 성장
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">브랜비 (Branby) </h3>
+								<p class="mono" style="color:var(--text-muted); font-size:0.9rem;">SI 개발 1팀</p>
+							</div>
+							<span class="mono highlight">2023.10 – 2024.09</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						<table>
+							<thead>
+								<tr>
+									<th width="20%">프로젝트</th>
+									<th width="30%">기술 스택</th>
+									<th>주요 성과</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-weight:bold;">삼성전자 DS ALM</td>
+									<td>Polarion ALM, Java8, MySQL, JS</td>
+									<td>
+										- ALM 1차 오픈<br>- 고객사 대응 및 성능 이슈 해결
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">와이즈넛 (Wisenut) </h3>
+								<p class="mono" style="color:var(--text-muted); font-size:0.9rem;">연구소 X-Search팀 / 융합기술연구팀 / AI 플랫폼팀</p>
+							</div>
+							<span class="mono highlight">2018.07 – 2023.10</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						<table>
+							<thead>
+								<tr>
+									<th width="20%">프로젝트</th>
+									<th width="30%">기술 스택</th>
+									<th>주요 성과</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td style="font-weight:bold;">다크데이터 분석</td>
+									<td>SpringBoot, Nuxt3, PostgreSQL, Airflow</td>
+									<td>
+										2차년도 개발 완료
+									</td>
+								</tr>
+								<tr>
+									<td>이종 데이터 증식</td>
+									<td>Python, ConceptNet</td>
+									<td>
+										최우수 과제 선정
+									</td>
+								</tr>
+								<tr>
+									<td>크로스 모델 통합</td>
+									<td>SpringBoot, Wayang, MySQL</td>
+									<td>
+										팀 리딩 경험
+									</td>
+								</tr>
+								<tr>
+									<td>Search-Formular1</td>
+									<td>C++, Java17, Lucene</td>
+									<td>
+										검색엔진 고도화
+									</td>
+								</tr>
+								<tr>
+									<td>Infofinder</td>
+									<td>MFC, IE Engine</td>
+									<td>
+										보안 우회 구현
+									</td>
+								</tr>
+								<tr>
+									<td>보안 관제 플랫폼</td>
+									<td>SpringBoot, ElasticSearch</td>
+									<td>
+										KISTI 기술이전
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">코인빈 (Coinbin) </h3>
+							</div>
+							<span class="mono highlight">2018.03 – 2018.06</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						<table>
+							<tbody>
+								<tr>
+									<td>ISMS-P 인증 준비 (AWS, Firewall) - 내부 심사 대응</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">에임시스템 (Aim Systems) </h3>
+							</div>
+							<span class="mono highlight">2015.11 – 2018.02</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						<table>
+							<tbody>
+								<tr>
+									<td>MES/RMS/SPC 웹 플랫폼 (SpringBoot, Angular, MongoDB) - 대기업 공장 시스템 구축</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- 5. History Timeline -->
+		<section id="timeline">
+			<div class="container"
+				style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+				<h2>05. 타임라인</h2>
+
+				<!-- Internal Scroll for Timeline to ensure no cut-off -->
+				<div class="custom-scroll" style="max-height: 70vh; overflow-y: auto; padding: 10px; width: 100%;">
+					<div class="timeline">
+						<div class="timeline-item">
+							<span class="timeline-date">2024.09</span>
+							<div class="timeline-content">
+								<strong>와이즈넛 재입사</strong>
+								<p>RAG 기반 생성형 AI 솔루션 개발</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2023.10</span>
+							<div class="timeline-content">
+								<strong>브랜비 입사</strong>
+								<p>삼성전자 ALM 프로젝트 참여</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2019.03 - 2021.02</span>
+							<div class="timeline-content">
+								<strong>한양대학교 석사</strong>
+								<p>블록체인융합학과 졸업</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2018.07</span>
+							<div class="timeline-content">
+								<strong>와이즈넛 입사</strong>
+								<p>검색엔진, 보안관제, AI 플랫폼 개발</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2018.03</span>
+							<div class="timeline-content">
+								<strong>코인빈 입사</strong>
+								<p>보안/인프라 담당</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2015.11</span>
+							<div class="timeline-content">
+								<strong>에임시스템 입사</strong>
+								<p>MES, RMS 웹 플랫폼 개발</p>
+							</div>
+						</div>
+						<div class="timeline-item">
+							<span class="timeline-date">2010.03</span>
+							<div class="timeline-content">
+								<strong>한국교통대학교 입학</strong>
+								<p>컴퓨터정보공학과</p>
+							</div>
+						</div>
+					</div>
+
+					<footer>
+						<p class="mono" style="margin-top: 3rem;">
+							&copy; 2025 KANG JUN SUNG. ALL RIGHTS RESERVED.<br>
+							<span style="color: var(--secondary);"> // END OF TRANSMISSION</span>
+						</p>
+					</footer>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

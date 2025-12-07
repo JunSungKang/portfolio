@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{{ profile.title_en }} | Portfolio</title>
+	<meta name="description" content="AI & Blockchain Backend Engineer Portfolio">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+	<!-- Background Particle Network -->
+	<canvas id="bg-canvas"></canvas>
+
+	<!-- Side Navigation -->
+	<div class="nav-dots">
+		<div class="nav-dot active" data-target="home"></div>
+		<div class="nav-dot" data-target="about"></div>
+		<div class="nav-dot" data-target="skills"></div>
+		<div class="nav-dot" data-target="education"></div>
+		<div class="nav-dot" data-target="career"></div>
+		<div class="nav-dot" data-target="timeline"></div>
+	</div>
+
+	<!-- Scroll Container -->
+	<main class="snap-container">
+
+		<!-- Hero Section -->
+		<section id="home">
+			<div class="container">
+				<p class="hero-subtitle mono">&lt;SYSTEM_STATUS: ONLINE /&gt;</p>
+				<h1>{{ profile.title_en }}</h1>
+				<p class="hero-subtitle mono" style="color: var(--text-main); margin-top: 0.5rem;">
+					{{ profile.role }}
+				</p>
+
+				<div class="hero-desc">
+					<p class="typing-text mono" data-text="{{ introduction.quote | escape }}"></p>
+					<p style="margin-top: 1rem; color: var(--text-muted);">
+						{{ introduction.desc }}
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- 1. Profile / Intro -->
+		<section id="about">
+			<div class="container">
+				<h2>01. 인적 사항</h2>
+				<div class="glass-card">
+					<div style="display: flex; flex-wrap: wrap; gap: 2rem;">
+						<div style="flex: 1; min-width: 250px;">
+							<h3 style="margin-bottom: 1rem; color: var(--secondary);">// 기본 정보</h3>
+							<ul style="list-style: none; line-height: 2;">
+								<li><span class="mono highlight">Name:</span> {{ profile.name_ko }} ({{ profile.name_en
+									}})</li>
+								<li><span class="mono highlight">Birth:</span> {{ profile.birth }}</li>
+								<li><span class="mono highlight">Education:</span> {{ profile.education }}</li>
+							</ul>
+						</div>
+						<div style="flex: 1; min-width: 250px;">
+							<h3 style="margin-bottom: 1rem; color: var(--secondary);">// 핵심 가치</h3>
+							<ul style="list-style: none; line-height: 2;">
+								{% for strength in profile.strengths %}
+								<li>{{ loop.index }}. {{ strength }}</li>
+								{% endfor %}
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 2. Skills -->
+		<section id="skills">
+			<div class="container">
+				<h2>02. 기술 스택</h2>
+
+				<div style="margin-bottom: 2rem;">
+					<h3 class="mono" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main);">::
+						주요 기술 (Main)</h3>
+					<div class="skills-grid">
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">LANGUAGES</span>
+							{% for lang in skills.main.languages %}
+							<span class="skill-tag">{{ lang }}</span>
+							{% endfor %}
+						</div>
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">FRAMEWORKS</span>
+							{% for fw in skills.main.frameworks %}
+							{% if fw == 'Spring Boot' %}
+							<span class="skill-tag" style="border-color: var(--primary); color: var(--primary);">{{ fw
+								}}</span>
+							{% else %}
+							<span class="skill-tag">{{ fw }}</span>
+							{% endif %}
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<h3 class="mono" style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-main);">::
+						기타 기술 (Sub)</h3>
+					<div class="skills-grid">
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">LANGUAGES</span>
+							{% for lang in skills.sub.languages %}
+							<span class="skill-tag">{{ lang }}</span>
+							{% endfor %}
+						</div>
+						<div>
+							<span
+								style="display:block; margin-bottom:5px; color:var(--text-muted); font-size:0.8rem;">FRAMEWORKS
+								& TOOLS</span>
+							{% for fw in skills.sub.frameworks %}
+							<span class="skill-tag">{{ fw }}</span>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 3. Education -->
+		<section id="education">
+			<div class="container">
+				<h2>03. 학력</h2>
+				<div class="glass-card table-container" style="overflow-x: hidden;"> <!-- Force no scroll -->
+					<table>
+						<thead>
+							<tr>
+								<th width="20%">학위</th>
+								<th width="30%">학교명</th>
+								<th width="30%">전공</th>
+								<th>기간</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for edu in education %}
+							<tr>
+								<td class="highlight">{{ edu.degree }}</td>
+								<td>{{ edu.school }}</td>
+								<td>{{ edu.major }}</td>
+								<td class="mono">{{ edu.period }}</td>
+							</tr>
+							{% endfor %}
+						</tbody>
+					</table>
+					<div style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+						{% for edu in education %}
+						{% if edu.thesis_title %}
+						<p {% if not loop.last %}style="margin-bottom: 0.5rem;" {% endif %}>
+							<i class="fas fa-file-alt highlight"></i> <strong>{{ edu.thesis_label }}:</strong>
+							<a href="{{ edu.thesis_link }}" target="_blank"
+								style="color: var(--text-main); text-decoration: none; border-bottom: 1px dashed var(--secondary);">{{
+								edu.thesis_title }}</a>
+						</p>
+						{% endif %}
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- 4. Career History -->
+		<section id="career">
+			<div class="container">
+				<h2>04. 업무 경력</h2>
+
+				<!-- Internal Scroll for Career if needed -->
+				<div style="max-height: 75vh; overflow-y: auto; padding-right: 1rem;" class="custom-scroll">
+
+					{% for role in career %}
+					<div class="glass-card" style="margin-bottom: 2rem;">
+						<div
+							style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; margin-bottom:1rem;">
+							<div>
+								<h3 style="font-size:1.4rem; color:#fff;">{{ role.company }} {% if role.is_current
+									%}<span
+										style="font-size:0.8rem; color:var(--primary); border:1px solid var(--primary); padding:2px 6px; border-radius:4px; margin-left:10px;">CURRENT</span>{%
+									endif %}</h3>
+								{% if role.team %}
+								<p class="mono" style="color:var(--text-muted); font-size:0.9rem;">{{ role.team }}</p>
+								{% endif %}
+							</div>
+							<span class="mono highlight">{{ role.period }}</span>
+						</div>
+
+						<!-- Check if complex table or simple table -->
+						{% if role.projects[0].tech %}
+						<table>
+							<thead>
+								<tr>
+									<th width="20%">프로젝트</th>
+									<th width="30%">기술 스택</th>
+									<th>주요 성과</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for project in role.projects %}
+								<tr>
+									{% if loop.first %}
+									<td style="font-weight:bold;">{{ project.name }}</td>
+									{% else %}
+									<td>{{ project.name }}</td>
+									{% endif %}
+									<td>{{ project.tech }}</td>
+									<td>
+										{{ project.result | safe }}
+									</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						{% else %}
+						<table>
+							<tbody>
+								{% for project in role.projects %}
+								<tr>
+									<td>{{ project.name }}</td>
+								</tr>
+								{% endfor %}
+							</tbody>
+						</table>
+						{% endif %}
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</section>
+
+		<!-- 5. History Timeline -->
+		<section id="timeline">
+			<div class="container"
+				style="height: 100%; display: flex; flex-direction: column; justify-content: center;">
+				<h2>05. 타임라인</h2>
+
+				<!-- Internal Scroll for Timeline to ensure no cut-off -->
+				<div class="custom-scroll" style="max-height: 70vh; overflow-y: auto; padding: 10px; width: 100%;">
+					<div class="timeline">
+						{% for item in timeline %}
+						<div class="timeline-item">
+							<span class="timeline-date">{{ item.date }}</span>
+							<div class="timeline-content">
+								<strong>{{ item.title }}</strong>
+								<p>{{ item.desc }}</p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					<footer>
+						<p class="mono" style="margin-top: 3rem;">
+							&copy; 2025 KANG JUN SUNG. ALL RIGHTS RESERVED.<br>
+							<span style="color: var(--secondary);"> // END OF TRANSMISSION</span>
+						</p>
+					</footer>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,698 @@
+/* 
+ * The Neural HUD - Design System 
+ * Concept: Dark, Future, Tactical, Glassmorphism
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap');
+
+:root {
+    /* Color Palette - Hacker / Terminal Theme (Lighter Space) */
+    --bg-deep: #101827;
+    /* Deep Navy Space Blue (Much lighter) */
+    --bg-panel: rgba(0, 0, 0, 0.7);
+    /* Darker panel for contrast */
+    --primary: #00ff41;
+    /* Terminal Green */
+    --secondary: #003b00;
+    /* Dark Green for backgrounds/accents */
+    --accent-alert: #ff003c;
+    /* Cyberpunk Red for Alerts/Highlights */
+    --text-main: #f0f4f8;
+    /* Brighter Text */
+    --text-muted: #4ade80;
+    /* Brighter Green Muted */
+    /* Slightly brighter white-blue */
+    --text-muted: #2f9e44;
+    /* More visible mellow green */
+    --border-glass: #00ff41;
+    --glow-primary: 0 0 10px rgba(0, 255, 65, 0.4);
+
+    /* Fonts - All Monospace for Hacking feel */
+    --font-heading: 'JetBrains Mono', monospace;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Spacing */
+    --space-md: 2rem;
+    --space-lg: 4rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CRT Scanline Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 999;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-main);
+    font-family: var(--font-mono);
+    /* Force Mono */
+    line-height: 1.6;
+    overflow: hidden;
+    /* Prevent default scrolling interaction conflicts */
+}
+
+/* ... (Scroll Container & Sections preserved) ... */
+
+/* Update Glass Card to Terminal Card */
+.glass-card {
+    background: var(--bg-panel);
+    backdrop-filter: blur(2px);
+    /* Less blur, more distinct */
+    -webkit-backdrop-filter: blur(2px);
+    border: 1px solid var(--primary);
+    /* Hard Green Border */
+    border-radius: 0;
+    /* Sharp Edges */
+    padding: 2rem;
+    box-shadow: 0 0 15px rgba(0, 255, 65, 0.1);
+    position: relative;
+    border-left: 4px solid var(--primary);
+    /* Accent line */
+}
+
+/* Add blinking cursor effect to headers or special text? Maybe just generic look first */
+
+/* ... (Timeline Arrow Update) ... */
+
+/* Flow Arrow (CSS Geometric - Reversed to point Left) - ENLARGED */
+/* Implies sorting is New <--- Old */
+.timeline-item::after {
+    display: block;
+    content: '';
+    position: absolute;
+    /* Move to Left Side */
+    left: -40px;
+    /* Adjusted for larger size */
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    /* Arrow Shape: Left Arrow (Triangle pointing left) */
+    /* DOUBLED SIZE */
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 25px solid var(--primary);
+    /* Explicitly Primary Green */
+    border-left: none;
+
+    opacity: 1.0;
+    /* Full visibility */
+    filter: drop-shadow(0 0 5px var(--primary));
+    /* Glow */
+    transition: all 0.3s;
+}
+
+.timeline-item:hover::after {
+    border-right-color: #fff;
+    /* Flash white on hover */
+    left: -45px;
+    right: auto;
+}
+
+/* ... (Hide logic preserved) ... */
+
+.timeline-item:first-child::after {
+    display: none;
+}
+
+.timeline-item:last-child::after {
+    display: block;
+}
+
+/* Timeline Item - Hacking Style */
+.timeline-item {
+    background: #0a0a0a;
+    border: 1px solid #333;
+    border-radius: 0;
+    /* Sharp */
+    padding: 1.5rem;
+    flex: 1 1 300px;
+    max-width: 400px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* No clip-path, simple terminal box */
+
+    /* Space for arrow */
+    margin-left: 40px;
+    /* Space on LEFT for arrow */
+    margin-right: 0;
+}
+
+.timeline-item:hover {
+    background: #001a00;
+    border-color: var(--primary);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.2);
+    transform: translateY(-5px);
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .timeline {
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .timeline-item {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 50px;
+        /* Space for larger down/up arrow */
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Arrow points UP on mobile (Old at bottom -> New at top) */
+    .timeline-item::after {
+        left: 50%;
+        top: -40px;
+        /* More space */
+        bottom: auto;
+        transform: translateX(-50%);
+        right: auto;
+
+        /* Up Arrow Shape - ENLARGED */
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+        border-bottom: 25px solid var(--primary);
+        /* Points Up */
+        border-top: none;
+    }
+
+    .timeline-item:hover::after {
+        border-bottom-color: #fff;
+        top: -45px;
+        left: 50%;
+    }
+}
+
+/* Full Page Scroll Container */
+.snap-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    position: relative;
+    z-index: 10;
+}
+
+/* Full Height Sections */
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    padding: 0 var(--space-md);
+    /* Reduced top/bottom padding since we center */
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+section.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Side Navigation Dots */
+.nav-dots {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.nav-dot {
+    width: 6px;
+    /* Small tech dots */
+    height: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-dot.active {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.nav-dot.active::after {
+    border-color: var(--secondary);
+    transform: rotate(45deg);
+    /* Tech diamond effect */
+}
+
+/* Background Canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Scrollbar Hide (Optional for cleaner look) */
+.snap-container::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+}
+
+/* Layout Utilities */
+.container {
+    max-width: 1400px;
+    width: 90%;
+    margin: 0 auto;
+    /* Removed padding to let sections handle it */
+}
+
+/* Adjustments for Content Density in 100vh */
+header {
+    height: 100vh;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+}
+
+h2::before {
+    content: '// ';
+    color: var(--secondary);
+    margin-right: 10px;
+}
+
+h2::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--secondary), transparent);
+    margin-left: 20px;
+    opacity: 0.5;
+}
+
+.mono {
+    font-family: var(--font-mono);
+}
+
+.highlight {
+    color: var(--primary);
+}
+
+/* Glass Card Component */
+.glass-card {
+    background: var(--bg-panel);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 4px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: var(--primary);
+    opacity: 0;
+    /* Unhovered */
+    transition: opacity 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    border-color: rgba(0, 243, 255, 0.3);
+}
+
+/* HUD Corners */
+.glass-card::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid var(--primary);
+    border-right: 2px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+/* Header / Hero */
+header {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.hero-subtitle {
+    font-family: var(--font-mono);
+    color: var(--secondary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.hero-desc {
+    max-width: 600px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    border-left: 2px solid var(--secondary);
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.skill-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin: 4px 4px 4px 0;
+    border: 1px solid var(--border-glass);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-main);
+    transition: all 0.2s;
+}
+
+.skill-tag:hover {
+    background: rgba(0, 243, 255, 0.1);
+    border-color: var(--primary);
+    color: var(--primary);
+    cursor: default;
+}
+
+/* Timeline (Horizontal Grid - Data Chips) */
+.timeline {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 1rem 0;
+    justify-content: flex-start;
+}
+
+/* Remove old vertical line */
+.timeline::after {
+    display: none;
+}
+
+.timeline-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    /* Subtle border */
+    border-radius: 4px;
+    padding: 1.5rem;
+    flex: 1 1 300px;
+    /* Grow, Shrink, Basis */
+    max-width: 400px;
+    /* Optional cap */
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    /* HUD Corner cosmetic - Removed clip-path as it hides the arrow */
+    /* border-radius is sufficient for the glass look */
+    border-radius: 4px;
+
+    /* Space for arrow */
+    margin-right: 30px;
+}
+
+.timeline-item:last-child {
+    margin-right: 0;
+}
+
+.timeline-item:hover {
+    background: rgba(0, 243, 255, 0.05);
+    /* Slight cyan tint */
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.timeline-item::before {
+    /* Small deco dot */
+    content: '';
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 6px;
+    height: 6px;
+    background: var(--secondary);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--secondary);
+}
+
+.timeline-item:hover::before {
+    background: var(--primary);
+    box-shadow: 0 0 8px var(--primary);
+}
+
+/* Flow Arrow (CSS Geometric - Reversed to point Left) */
+/* Implies sorting is New <--- Old */
+.timeline-item::after {
+    display: block;
+    content: '';
+    position: absolute;
+    /* Move to Left Side */
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    /* Arrow Shape: Left Arrow (Triangle pointing left) */
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 10px solid var(--secondary);
+    /* Color on Right side creates Left Pointer */
+    border-left: none;
+
+    opacity: 0.8;
+    transition: all 0.3s;
+}
+
+.timeline-item:hover::after {
+    border-right-color: var(--primary);
+    left: -28px;
+    /* Move slightly left on hover */
+    right: auto;
+    /* Reset right property */
+}
+
+/* Hide arrow for the LAST item in HTML (which is the Oldest/Rightmost visually) */
+/* Actually, let's keep it simple: Arrow on Left of item points to Previous item.
+   So every item effectively points to the one before it (Newer one).
+   Except the First one (Newest) shouldn't have an arrow pointing to nothing.
+*/
+
+.timeline-item:first-child::after {
+    display: none;
+}
+
+.timeline-item:last-child::after {
+    display: block;
+    /* Restore for last */
+}
+
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+    .timeline {
+        justify-content: center;
+        flex-direction: column;
+        /* Force vertical stack on mobile */
+    }
+
+    .timeline-item {
+        max-width: 100%;
+        margin-right: 0;
+        margin-bottom: 30px;
+        /* Space for down arrow */
+    }
+
+    .timeline-item:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Arrow points UP on mobile (Old at bottom -> New at top) */
+    .timeline-item::after {
+        left: 50%;
+        top: -25px;
+        /* Move to Top */
+        bottom: auto;
+        transform: translateX(-50%);
+        right: auto;
+
+        /* Up Arrow Shape */
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-bottom: 10px solid var(--secondary);
+        /* Points Up */
+        border-top: none;
+    }
+
+    .timeline-item:hover::after {
+        border-bottom-color: var(--primary);
+        top: -28px;
+        left: 50%;
+    }
+}
+
+/* Custom Scrollbar Styling (Cyberpunk Theme) */
+/* Works on Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+    border-radius: 4px;
+    box-shadow: 0 0 5px var(--secondary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Specific overrides if needed, but global is better for consistency */
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/* Tables (Careers) */
+.table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+}
+
+th {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid var(--secondary);
+    color: var(--primary);
+    font-family: var(--font-mono);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+}
+
+tr:hover td {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    /* Reduced padding */
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 95%;
+    }
+}
