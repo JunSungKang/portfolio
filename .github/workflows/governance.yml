@@ -22,7 +22,6 @@ on:
 permissions:
   contents: read
   pull-requests: read
-  statuses: write
 
 jobs:
   policy:
@@ -39,7 +38,6 @@ jobs:
         run: |
           set -euo pipefail
 
-          context='Governance / policy'
           pr="$(gh api "repos/${REPOSITORY}/pulls/${PR_NUMBER}")"
           policy="$(gh api "repos/${REPOSITORY}/contents/.github/codex-governance.json?ref=${{ github.event.pull_request.base.sha }}" --jq '.content' | tr -d '\n' | base64 --decode)"
 
@@ -73,12 +71,6 @@ jobs:
           fi
 
           if [[ -n "${failure}" ]]; then
-            gh api --method POST "repos/${REPOSITORY}/statuses/${HEAD_SHA}" \
-              -f state='failure' -f context="${context}" -f description="${failure:0:140}"
             printf '%s\n' "${failure}" >&2
             exit 1
           fi
-
-          gh api --method POST "repos/${REPOSITORY}/statuses/${HEAD_SHA}" \
-            -f state='success' -f context="${context}" \
-            -f description='Human roles and current-head App review verified'
