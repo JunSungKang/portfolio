@@ -58,6 +58,16 @@ case_studies:
     tech: ["Java 21", "Spring Boot 4", "PostgreSQL", "GitLab"]
     tone: "accent"
   - index: "02"
+    eyebrow: "사내 SaaS · 운영"
+    title: "플랫폼을 직접 운영으로"
+    summary: "사내에서 사용하는 SaaS 기반 플랫폼을 개발하고 배포해 2026년 1월부터 실제 운영하고 있습니다. 출시 이후에도 서비스 트래픽과 운영 정책을 직접 관리하며 안정적인 운영과 유지보수를 이어가고 있습니다."
+    period: "2026.01 – 현재"
+    role: "백엔드·플랫폼 개발 · 배포와 운영 유지관리"
+    result: "사내 SaaS 플랫폼 출시 및 실제 운영 전환"
+    collaboration: "사내 사용자 요구와 운영 상황을 반영해 트래픽·정책 관리"
+    tech: ["Java", "Spring Boot", "SaaS", "Kubernetes", "Docker", "PostgreSQL"]
+    tone: "dark"
+  - index: "03"
     eyebrow: "기업용 AI · 제품 출시"
     title: "AI를 제품으로"
     summary: "사용자가 질문하면 회사 문서에서 관련 내용을 찾아 답변하는 기업용 AI 제품입니다. 10명 규모의 팀에서 제품의 핵심 기술 구조를 설계하고, GPU 기반 제품과 Furiosa NPU 기반 제품을 각각 출시하는 과정에 참여했습니다."
@@ -66,23 +76,28 @@ case_studies:
     result: "GPU 기반 제품과 Furiosa NPU 기반 제품을 각각 출시"
     collaboration: "코드 변경 사항을 자동으로 검사·배포하는 환경을 운영하고 전담 품질검증 팀과 협업"
     tech: ["Java 21", "Spring Boot 3", "RAG", "LLM", "Nuxt 3", "PostgreSQL", "Jenkins"]
-    tone: "dark"
-  - index: "03"
-    eyebrow: "개인 프로젝트 · GitHub 공개"
-    title: "라벨을 더 쉽게"
-    summary: "바코드 라벨을 출력하려면 복잡한 명령어를 직접 작성해야 합니다. 화면에서 글자와 바코드를 배치하면 프린터용 데이터로 바꿔주는 도구를 개인 프로젝트로 만들고 있습니다."
-    period: "2026 – 현재"
-    role: "개인 프로젝트 · 기획, 서버와 화면 개발, 설명서와 테스트 작성"
-    result: "서버 프로그램과 웹 디자인 도구를 GitHub에 공개하며 개발 중"
-    collaboration: "다른 개발자가 쉽게 이해하고 사용할 수 있도록 사용법과 테스트를 함께 관리"
-    tech: ["Java", "Spring Boot", "TypeScript", "API Design", "CI"]
     tone: "light"
-    links:
-      - label: "API Server"
-        url: "https://github.com/JunSungKang/zpl-viewer"
-      - label: "Web Designer"
-        url: "https://github.com/JunSungKang/zpl-viewer-designer"
   - index: "04"
+    eyebrow: "플랫폼 기술 · 연구"
+    title: "제품을 받치는 플랫폼 연구"
+    summary: "조직 개편으로 플랫폼팀에 합류한 뒤 Kubernetes와 Docker를 중심으로 여러 제품이 공통으로 활용할 수 있는 플랫폼 기반을 연구했습니다. 컨테이너 환경에서 제품을 일관되게 실행하고 배포하기 위한 기술과 운영 구조를 검토했습니다."
+    period: "2022 – 2024"
+    role: "백엔드·플랫폼 연구 · 컨테이너 실행 및 배포 구조 검토"
+    result: "Kubernetes·Docker 기반 플랫폼 기술과 운영 기반 확보"
+    collaboration: "제품 개발 조직과 공통 플랫폼 요구사항 및 적용 방안 협의"
+    tech: ["Kubernetes", "Docker", "Java", "Spring Boot", "Platform Engineering"]
+    tone: "light"
+  - index: "05"
+    eyebrow: "검색엔진 · 성능 개선"
+    title: "검색엔진을 더 빠르고 관리하기 쉽게"
+    summary: "C++ 기반 검색엔진의 메모리 사용과 검색 속도를 개선하고, Java 기반으로 업그레이드하며 코드의 유지보수성과 확장성을 높였습니다. 검색 결과뿐 아니라 엔진 내부의 성능과 장기적인 관리까지 함께 개선했습니다."
+    period: "2018 – 2021"
+    role: "검색엔진 개발 · 성능 최적화와 Java 기반 구조 개선"
+    result: "메모리·검색 성능 개선 및 검색엔진 유지보수성 향상"
+    collaboration: "검색 제품 조직과 기존 엔진 분석 및 업그레이드 진행"
+    tech: ["C++", "Java", "Lucene", "Search Engine", "Performance Tuning"]
+    tone: "dark"
+  - index: "06"
     eyebrow: "제조 시스템 · 현장 운영"
     title: "공장을 실제 운영으로"
     summary: "제조·물류·공정 관리 시스템을 개발하고 국내외 제조 현장의 QA와 운영 배포에 참여했습니다. 약 1년 6개월간 구축한 MES 산출물을 대상으로 중국 Truly 후이저우(혜주) 공장에서 운영 전 3개월 QA를 수행했으며, 스마트팩토리 플랫폼 aimOS와 공정 레시피 관리 시스템 RMS를 고객사 환경에 배포했습니다."
@@ -92,6 +107,20 @@ case_studies:
     collaboration: "Truly 혜주 공장 현장 QA와 신성이엔지·SK이노베이션·SK실트론 운영 배포 협업"
     tech: ["Java", "Spring Boot", "Angular", "MongoDB", "MES", "Smart Factory"]
     tone: "light"
+
+personal_projects:
+  - eyebrow: "개인 프로젝트 · GitHub 공개"
+    title: "라벨을 더 쉽게"
+    summary: "바코드 라벨을 출력하려면 복잡한 명령어를 직접 작성해야 합니다. 화면에서 글자와 바코드를 배치하면 프린터용 데이터로 바꿔주는 도구를 개인 프로젝트로 만들고 있습니다."
+    period: "2026 – 현재"
+    role: "기획, 서버와 화면 개발, 설명서와 테스트 작성"
+    result: "서버 프로그램과 웹 디자인 도구를 GitHub에 공개하며 개발 중"
+    tech: ["Java", "Spring Boot", "TypeScript", "API Design", "CI"]
+    links:
+      - label: "API Server"
+        url: "https://github.com/JunSungKang/zpl-viewer"
+      - label: "Web Designer"
+        url: "https://github.com/JunSungKang/zpl-viewer-designer"
 
 experience:
   - company: "와이즈넛"

@@ -151,6 +151,34 @@
 			</div>
 		</section>
 
+		<section class="section personal-project-section" aria-labelledby="personal-project-title">
+			<div class="shell">
+				<div class="section-heading">
+					<div>
+						<p class="section-kicker">개인 프로젝트</p>
+						<h2 id="personal-project-title">업무 밖의 실험</h2>
+					</div>
+					<p>직접 불편을 발견하고 설계부터 공개까지 이어가는 프로젝트입니다.</p>
+				</div>
+				<div class="case-grid personal-project-grid">
+					{% for project in personal_projects %}
+					<article class="case-card case-light">
+						<div class="case-topline"><span>0{{ loop.index }}</span><small>{{ project.eyebrow }}</small></div>
+						<h3>{{ project.title }}</h3>
+						<p class="case-summary">{{ project.summary }}</p>
+						<dl class="case-facts">
+							<div><dt>기간</dt><dd>{{ project.period }}</dd></div>
+							<div><dt>역할</dt><dd>{{ project.role }}</dd></div>
+							<div><dt>결과</dt><dd>{{ project.result }}</dd></div>
+						</dl>
+						<ul class="tag-list" aria-label="기술 스택">{% for technology in project.tech %}<li>{{ technology }}</li>{% endfor %}</ul>
+						<div class="case-links">{% for link in project.links %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>
+					</article>
+					{% endfor %}
+				</div>
+			</div>
+		</section>
+
 		<section class="section strengths-section">
 			<div class="shell">
 				<div class="section-heading compact">
