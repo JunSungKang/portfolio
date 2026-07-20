@@ -1,0 +1,84 @@
+name: Governance
+
+on:
+  pull_request_target:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - assigned
+      - unassigned
+      - review_requested
+      - review_request_removed
+  pull_request_review:
+    branches:
+      - main
+    types:
+      - submitted
+      - dismissed
+
+permissions:
+  contents: read
+  pull-requests: read
+  statuses: write
+
+jobs:
+  policy:
+    name: Policy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verify human-owned PR and current-head App review
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          context='Governance / policy'
+          pr="$(gh api "repos/${REPOSITORY}/pulls/${PR_NUMBER}")"
+          policy="$(gh api "repos/${REPOSITORY}/contents/.github/codex-governance.json?ref=${{ github.event.pull_request.base.sha }}" --jq '.content' | tr -d '\n' | base64 --decode)"
+
+          expected_author="$(jq -r '.prAuthorLogin' <<<"${policy}")"
+          expected_assignee="$(jq -r '.assigneeLogin' <<<"${policy}")"
+          expected_reviewer="$(jq -r '.reviewerLogin' <<<"${policy}")"
+          expected_base="$(jq -r '.targetBranch' <<<"${policy}")"
+          branch_pattern="$(jq -r '.branchPattern' <<<"${policy}")"
+
+          failure=''
+          actual_author="$(jq -r '.user.login' <<<"${pr}")"
+          actual_base="$(jq -r '.base.ref' <<<"${pr}")"
+          actual_head="$(jq -r '.head.ref' <<<"${pr}")"
+          actual_head_repo="$(jq -r '.head.repo.full_name' <<<"${pr}")"
+
+          if [[ "${actual_author}" != "${expected_author}" ]]; then
+            failure="PR author must be ${expected_author}"
+          elif ! jq -e --arg login "${expected_assignee}" '.assignees | any(.login == $login)' <<<"${pr}" >/dev/null; then
+            failure="PR assignee must include ${expected_assignee}"
+          elif [[ "${actual_base}" != "${expected_base}" ]]; then
+            failure="PR base must be ${expected_base}"
+          elif [[ "${actual_head_repo}" != "${REPOSITORY}" ]]; then
+            failure='PR head must be in the canonical repository'
+          elif [[ ! "${actual_head}" =~ ${branch_pattern} ]]; then
+            failure='PR head branch does not match repository policy'
+          else
+            review_state="$(gh api --paginate "repos/${REPOSITORY}/pulls/${PR_NUMBER}/reviews" --jq "[.[] | select(.user.login == \"${expected_reviewer}\" and .commit_id == \"${HEAD_SHA}\")] | sort_by(.submitted_at) | last | .state // \"\"")"
+            if [[ "${review_state}" != 'APPROVED' ]]; then
+              failure="Current head requires ${expected_reviewer} APPROVED review"
+            fi
+          fi
+
+          if [[ -n "${failure}" ]]; then
+            gh api --method POST "repos/${REPOSITORY}/statuses/${HEAD_SHA}" \
+              -f state='failure' -f context="${context}" -f description="${failure:0:140}"
+            printf '%s\n' "${failure}" >&2
+            exit 1
+          fi
+
+          gh api --method POST "repos/${REPOSITORY}/statuses/${HEAD_SHA}" \
+            -f state='success' -f context="${context}" \
+            -f description='Human roles and current-head App review verified'
