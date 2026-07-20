@@ -596,6 +596,15 @@ dd {
     background: var(--cream);
 }
 
+.personal-project-section {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+}
+
+.personal-project-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
 .case-grid {
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
@@ -625,6 +634,11 @@ dd {
 .case-card:nth-child(3),
 .case-card:nth-child(4) {
     grid-column: span 6;
+}
+
+.personal-project-grid .case-card {
+    grid-column: auto;
+    min-height: auto;
 }
 
 .case-accent {
