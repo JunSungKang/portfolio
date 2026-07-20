@@ -82,6 +82,16 @@ case_studies:
         url: "https://github.com/JunSungKang/zpl-viewer"
       - label: "Web Designer"
         url: "https://github.com/JunSungKang/zpl-viewer-designer"
+  - index: "04"
+    eyebrow: "제조 시스템 · 현장 운영"
+    title: "공장을 실제 운영으로"
+    summary: "제조·물류·공정 관리 시스템을 개발하고 국내외 제조 현장의 QA와 운영 배포에 참여했습니다. 약 1년 6개월간 구축한 MES 산출물을 대상으로 중국 Truly 후이저우(혜주) 공장에서 운영 전 3개월 QA를 수행했으며, 스마트팩토리 플랫폼 aimOS와 공정 레시피 관리 시스템 RMS를 고객사 환경에 배포했습니다."
+    period: "2015.11 – 2018.02"
+    role: "서버·웹 화면 개발 · 현장 QA 및 운영 배포 참여"
+    result: "MES·스마트팩토리·공정 레시피 관리 시스템의 고객사 운영 환경 배포"
+    collaboration: "Truly 혜주 공장 현장 QA와 신성이엔지·SK이노베이션·SK실트론 운영 배포 협업"
+    tech: ["Java", "Spring Boot", "Angular", "MongoDB", "MES", "Smart Factory"]
+    tone: "light"
 
 experience:
   - company: "와이즈넛"
@@ -110,8 +120,12 @@ experience:
     role: "소프트웨어 개발자"
     period: "2015.11 – 2018.02"
     current: false
-    summary: "제품 생산 현황과 품질을 관리하는 제조 현장용 웹 시스템을 만들며 개발 경력을 시작했습니다."
-    highlights: ["대기업 제조 현장에서 사용하는 웹 시스템 구축", "서버와 사용자 화면을 모두 개발"]
+    summary: "제조 현장의 생산·물류·공정을 관리하는 웹 시스템을 개발했습니다. 서버와 사용자 화면 개발뿐 아니라 해외 공장 QA와 고객사 운영 환경 배포까지 경험했습니다."
+    highlights:
+      - "약 1년 6개월간 구축한 MES 산출물을 대상으로 중국 Truly 후이저우(혜주) 공장 운영 전 3개월 QA 수행"
+      - "제조관리부터 물류관리까지 연결하는 스마트팩토리 플랫폼 aimOS 개발 및 신성이엔지 운영 환경 배포"
+      - "반도체·디스플레이 공정용 RMS(Recipe Manager System) 개발 및 SK이노베이션·SK실트론 운영 환경 배포"
+      - "Java·Spring Boot 기반 서버와 Angular 기반 사용자 화면 개발"
     tech: ["Java", "Spring Boot", "Angular", "MongoDB"]
 
 skills:
