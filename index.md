@@ -78,16 +78,6 @@ case_studies:
     tech: ["Java 21", "Spring Boot 3", "RAG", "LLM", "Nuxt 3", "PostgreSQL", "Jenkins"]
     tone: "light"
   - index: "04"
-    eyebrow: "플랫폼 기술 · 연구"
-    title: "제품을 받치는 플랫폼 연구"
-    summary: "조직 개편으로 플랫폼팀에 합류한 뒤 Kubernetes와 Docker를 중심으로 여러 제품이 공통으로 활용할 수 있는 플랫폼 기반을 연구했습니다. 컨테이너 환경에서 제품을 일관되게 실행하고 배포하기 위한 기술과 운영 구조를 검토했습니다."
-    period: "2022 – 2024"
-    role: "백엔드·플랫폼 연구 · 컨테이너 실행 및 배포 구조 검토"
-    result: "Kubernetes·Docker 기반 플랫폼 기술과 운영 기반 확보"
-    collaboration: "제품 개발 조직과 공통 플랫폼 요구사항 및 적용 방안 협의"
-    tech: ["Kubernetes", "Docker", "Java", "Spring Boot", "Platform Engineering"]
-    tone: "light"
-  - index: "05"
     eyebrow: "검색엔진 · 성능 개선"
     title: "검색엔진을 더 빠르고 관리하기 쉽게"
     summary: "C++ 기반 검색엔진의 메모리 사용과 검색 속도를 개선하고, Java 기반으로 업그레이드하며 코드의 유지보수성과 확장성을 높였습니다. 검색 결과뿐 아니라 엔진 내부의 성능과 장기적인 관리까지 함께 개선했습니다."
@@ -97,7 +87,7 @@ case_studies:
     collaboration: "검색 제품 조직과 기존 엔진 분석 및 업그레이드 진행"
     tech: ["C++", "Java", "Lucene", "Search Engine", "Performance Tuning"]
     tone: "dark"
-  - index: "06"
+  - index: "05"
     eyebrow: "제조 시스템 · 현장 운영"
     title: "공장을 실제 운영으로"
     summary: "제조·물류·공정 관리 시스템을 개발하고 국내외 제조 현장의 QA와 운영 배포에 참여했습니다. 약 1년 6개월간 구축한 MES 산출물을 대상으로 중국 Truly 후이저우(혜주) 공장에서 운영 전 3개월 QA를 수행했으며, 스마트팩토리 플랫폼 aimOS와 공정 레시피 관리 시스템 RMS를 고객사 환경에 배포했습니다."
@@ -158,6 +148,11 @@ experience:
     tech: ["Java", "Spring Boot", "Angular", "MongoDB"]
 
 skills:
+  - category: "플랫폼 엔지니어링"
+    name: "Kubernetes·Docker"
+    experience: "2022–2024 · 연구 및 적용"
+    level: "컨테이너 기반 실행·배포 구조 검토 가능"
+    evidence: "플랫폼팀에서 여러 제품이 공통으로 활용할 수 있는 컨테이너 실행·배포 기반과 운영 구조 연구"
   - category: "서버 개발"
     name: "Java·Spring Boot"
     experience: "7년 · 현재 사용"
