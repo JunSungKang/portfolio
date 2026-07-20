@@ -60,12 +60,12 @@ case_studies:
   - index: "02"
     eyebrow: "기업용 AI · 제품 출시"
     title: "AI를 제품으로"
-    summary: "사용자가 질문하면 회사 문서에서 관련 내용을 찾아 답변하는 AI 제품입니다. 10명 규모의 팀에서 제품의 핵심 기술 구조를 설계하고 출시에 참여했습니다."
+    summary: "사용자가 질문하면 회사 문서에서 관련 내용을 찾아 답변하는 기업용 AI 제품입니다. 10명 규모의 팀에서 제품의 핵심 기술 구조를 설계하고, GPU 기반 제품과 Furiosa NPU 기반 제품을 각각 출시하는 과정에 참여했습니다."
     period: "2024.09 – 현재"
     role: "백엔드·AI 개발 · 문서를 찾고 답변을 만드는 서버 구조 설계"
-    result: "기업용 AI 검색·답변 제품 출시"
+    result: "GPU 기반 제품과 Furiosa NPU 기반 제품을 각각 출시"
     collaboration: "코드 변경 사항을 자동으로 검사·배포하는 환경을 운영하고 전담 품질검증 팀과 협업"
-    tech: ["Java 21", "Spring Boot 3", "Nuxt 3", "PostgreSQL", "Jenkins"]
+    tech: ["Java 21", "Spring Boot 3", "RAG", "LLM", "Nuxt 3", "PostgreSQL", "Jenkins"]
     tone: "dark"
   - index: "03"
     eyebrow: "개인 프로젝트 · GitHub 공개"
@@ -138,7 +138,7 @@ skills:
     name: "RAG·검색 기술"
     experience: "7년 · 현재 사용"
     level: "설계와 팀 기술 방향 결정 가능"
-    evidence: "회사 문서를 찾아 답하는 AI 제품, 검색엔진, 생성형 AI 운영 경험"
+    evidence: "회사 문서를 찾아 답하는 AI 제품, 검색엔진, 생성형 AI 운영과 Furiosa NPU 기반 제품 적용·출시 경험"
   - category: "화면 개발"
     name: "TypeScript 웹 개발"
     experience: "4년 · 현재 사용"
@@ -150,7 +150,7 @@ skills:
     level: "독립 구현 가능"
     evidence: "PostgreSQL·MySQL·MongoDB로 제조 시스템부터 검색·AI 제품까지 개발"
 
-ai_keywords: ["Gemma", "Qwen", "gpt-oss", "Furiosa", "LLM Operations"]
+ai_keywords: ["Gemma", "Qwen", "gpt-oss", "Furiosa NPU 적용", "LLM Operations"]
 
 patents:
   summary: "업무 중 발견한 문제와 해결 방법을 특허로 정리해 등록 5건, 공개 2건의 성과를 만들었습니다."
