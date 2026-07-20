@@ -1,0 +1,10 @@
+# Local questionnaire data can contain private reference answers.
+portfolio-questionnaire*.html
+portfolio-questionnaire*.json
+portfolio-questionnaire*.md
+
+# Dependencies are installed during the build.
+scripts/node_modules/
+
+# Sprint workflow contracts are local orchestration artifacts.
+sprint/

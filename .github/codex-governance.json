@@ -9,5 +9,7 @@
   "mergeMethods": {
     "main": "merge"
   },
-  "requiredChecks": []
+  "requiredChecks": [
+    "Governance / policy"
+  ]
 }
