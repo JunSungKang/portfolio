@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "prAuthorLogin": "JunSungKang",
+  "pushActorLogin": "JunSungKang",
+  "assigneeLogin": "JunSungKang",
+  "reviewerLogin": "junsung-bot[bot]",
+  "targetBranch": "main",
+  "branchPattern": "^(feat|fix|chore|docs|refactor)/[a-z0-9][a-z0-9._-]*$",
+  "mergeMethods": {
+    "main": "merge"
+  },
+  "requiredChecks": []
+}

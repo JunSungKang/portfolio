@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 4,
+  "workSlug": "bootstrap-portfolio-governance",
+  "flowType": "bootstrap",
+  "branch": "chore/bootstrap-portfolio-governance",
+  "targetBranch": "main",
+  "baseSha": "d51932de86788d7be6264e1468edf509e51a3358",
+  "mergeMethod": "merge",
+  "governance": {
+    "prAuthorLogin": "JunSungKang",
+    "assigneeLogin": "JunSungKang",
+    "reviewerLogin": "junsung-bot[bot]",
+    "commitAuthor": {
+      "name": "JunSungKang",
+      "email": "kjuns1@naver.com"
+    },
+    "coAuthors": [
+      {
+        "name": "junsung-bot[bot]",
+        "email": "302617028+junsung-bot[bot]@users.noreply.github.com"
+      },
+      {
+        "name": "Codex",
+        "email": "codex@openai.com"
+      }
+    ],
+    "requiredChecks": []
+  },
+  "tasks": [
+    {
+      "id": "S1.1",
+      "title": "저장소 정책과 trusted review check 설치",
+      "expectedPaths": [
+        ".github/codex-governance.json",
+        ".github/workflows/governance.yml",
+        "sprint/bootstrap-portfolio-governance.workflow.md",
+        "sprint/bootstrap-portfolio-governance.workflow.json"
+      ],
+      "forbiddenPaths": [
+        ".github/workflows/auto_generate.yml",
+        "css/**",
+        "index.html",
+        "index.md",
+        "js/**",
+        "scripts/**",
+        "favicon.svg",
+        "robots.txt",
+        "sitemap.xml"
+      ],
+      "acceptanceCriteria": [
+        "저장소 정책은 사람 PR author/assignee와 App bot reviewer 역할을 선언한다.",
+        "trusted workflow는 main 대상 PR의 사람 역할과 현재 head App APPROVED 리뷰를 검증한다.",
+        "develop 브랜치 없이 main 기반 단기 작업 브랜치 흐름을 사용한다."
+      ],
+      "validationCommands": [
+        "node /Users/kkkk/.codex/scripts/github-app-plan-validate.mjs sprint/bootstrap-portfolio-governance.workflow.json",
+        "node -e \"JSON.parse(require('fs').readFileSync('.github/codex-governance.json','utf8'))\"",
+        "ruby -e \"require 'yaml'; YAML.load_file('.github/workflows/governance.yml')\"",
+        "git diff --check"
+      ],
+      "documentation": {
+        "paths": [
+          "sprint/bootstrap-portfolio-governance.workflow.md",
+          ".github/codex-governance.json"
+        ]
+      }
+    }
+  ]
+}
