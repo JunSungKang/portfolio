@@ -10,6 +10,6 @@
     "main": "merge"
   },
   "requiredChecks": [
-    "Governance / policy"
+    "Policy"
   ]
 }
