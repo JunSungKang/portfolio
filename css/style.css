@@ -601,7 +601,7 @@ dd {
     border-top: 1px solid var(--line);
 }
 
-.personal-project-grid {
+.case-grid.personal-project-grid {
     grid-template-columns: minmax(0, 1fr);
 }
 
