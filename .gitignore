@@ -8,3 +8,6 @@ scripts/node_modules/
 
 # Sprint workflow contracts are local orchestration artifacts.
 sprint/
+
+# macOS Finder metadata is local-only.
+.DS_Store
