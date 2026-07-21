@@ -788,6 +788,21 @@ dd {
     text-underline-offset: 5px;
 }
 
+.project-preview {
+    margin: 32px 0 0;
+    overflow: hidden;
+    border: 1px solid rgba(16, 33, 44, 0.16);
+    border-radius: 18px;
+    background: var(--paper);
+    box-shadow: 0 18px 44px rgba(16, 33, 44, 0.12);
+}
+
+.project-preview img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
 .strengths-section {
     padding-top: 0;
 }
@@ -1526,6 +1541,11 @@ dd {
     .case-facts div:nth-child(even) {
         padding: 13px 0;
         border-left: 0;
+    }
+
+    .project-preview {
+        margin-top: 24px;
+        border-radius: 12px;
     }
 
     .timeline-item {
