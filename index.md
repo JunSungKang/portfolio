@@ -106,11 +106,11 @@ personal_projects:
     role: "기획, 서버와 화면 개발, 설명서와 테스트 작성"
     result: "서버 프로그램과 웹 디자인 도구를 GitHub에 공개하며 개발 중"
     tech: ["Java", "Spring Boot", "TypeScript", "API Design", "CI"]
-    links:
-      - label: "API Server"
-        url: "https://github.com/JunSungKang/zpl-viewer"
-      - label: "Web Designer"
-        url: "https://github.com/JunSungKang/zpl-viewer-designer"
+    preview:
+      src: "assets/zpl-designer-preview.png"
+      alt: "ZPL 라벨 디자이너에서 배송 라벨을 편집하는 화면"
+      width: 1440
+      height: 900
 
 experience:
   - company: "와이즈넛"

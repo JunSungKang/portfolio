@@ -172,7 +172,13 @@
 							<div><dt>결과</dt><dd>{{ project.result }}</dd></div>
 						</dl>
 						<ul class="tag-list" aria-label="기술 스택">{% for technology in project.tech %}<li>{{ technology }}</li>{% endfor %}</ul>
+						{% if project.preview %}
+						<figure class="project-preview">
+							<img src="{{ project.preview.src }}" alt="{{ project.preview.alt }}" width="{{ project.preview.width }}" height="{{ project.preview.height }}" loading="lazy" decoding="async">
+						</figure>
+						{% elif project.links %}
 						<div class="case-links">{% for link in project.links %}<a href="{{ link.url }}" target="_blank" rel="noopener noreferrer">{{ link.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</div>
+						{% endif %}
 					</article>
 					{% endfor %}
 				</div>
