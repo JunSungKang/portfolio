@@ -99,12 +99,12 @@ case_studies:
     tone: "light"
 
 personal_projects:
-  - eyebrow: "개인 프로젝트 · GitHub 공개"
+  - eyebrow: "개인 프로젝트 · 비공개 개발"
     title: "라벨을 더 쉽게"
     summary: "바코드 라벨을 출력하려면 복잡한 명령어를 직접 작성해야 합니다. 화면에서 글자와 바코드를 배치하면 프린터용 데이터로 바꿔주는 도구를 개인 프로젝트로 만들고 있습니다."
     period: "2026 – 현재"
     role: "기획, 서버와 화면 개발, 설명서와 테스트 작성"
-    result: "서버 프로그램과 웹 디자인 도구를 GitHub에 공개하며 개발 중"
+    result: "서버 프로그램과 웹 디자인 도구를 비공개로 개발 중"
     tech: ["Java", "Spring Boot", "TypeScript", "API Design", "CI"]
     preview:
       src: "assets/zpl-designer-preview.png"
